@@ -1,0 +1,22 @@
+Package Name - nss 
+1. The following packages are required to run the built-in tests:
+perl
+sed
+diffutils
+ 
+2. No need to pass any configuration options. Because the test suites are written in script.
+It doesn't create any binaries.
+3. After the build is completed you should copy the entire directory to the rootfs.
+4. After booting the board you need to set the following environment variables.
+# export HOST=localhost
+# export DOMSUF=localdomain
+# export OBJDIR=Linux.OBJ (directory name of nss-x/dist/Linux.OBJ)
+# export OS_ARCH=Linux
+# export DLL_PREFIX=lib
+# export DLL_SUFFIX=so
+# export NSS_CYCLES=standard
+5. To run the built-in tests run the following command:
+# cd /home/nss-3.88.1/nss/tests
+ 
+# ./all.sh
+6. Test results are published in the folder "test_results" in the top level directory.
